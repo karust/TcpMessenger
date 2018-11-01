@@ -6,3 +6,5 @@ config.py
 Client/__pyc*
 data.db
 ./Server
+Server/Server
+Server/test.db

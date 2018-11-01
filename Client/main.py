@@ -11,6 +11,8 @@ import sys
 import sqlite3 as db
 
 
+# Don't try to read it, it's a mess
+# Not the proudest code i've done, better see Server
 class MainWindow(QMainWindow):
     trigger = pyqtSignal()
     def __init__(self):
@@ -41,7 +43,7 @@ class MainWindow(QMainWindow):
         uic.loadUi(self.cwd+"ui/main.ui", self)
         ico = self.style().standardIcon(QtWidgets.QStyle.SP_TrashIcon)
         self.setWindowIcon(ico)
-        self.setWindowTitle("T0p Messenger - 2k18")
+        self.setWindowTitle("CrappyMessengerAwardWinner - 2k18")
         self.SticketsWidget = StickerWidget(parent=self.Stickers)
         self.SticketsWidget.cwd = self.cwd
         self.SticketsWidget.loadStickers()
@@ -68,12 +70,12 @@ class MainWindow(QMainWindow):
         self.StickerBtn.clicked.connect(self.stickerContactsBtn)
         self.Tabs.currentChanged.connect(self.tabChanged)
 
-        reloginAction = QAction('&Relogin', self)
-        reloginAction.setShortcut('Ctrl+R')
-        reloginAction.triggered.connect(self.login)
+        #reloginAction = QAction('&Relogin', self)
+        #reloginAction.setShortcut('Ctrl+R')
+        #reloginAction.triggered.connect(self.login)
 
-        fileMenu = menubar.addMenu('&Account')
-        fileMenu.addAction(reloginAction)
+        #fileMenu = menubar.addMenu('&Account')
+        #fileMenu.addAction(reloginAction)
 
         crGr = QAction('&Create group', self)
         crGr.setShortcut('Ctrl+G')
@@ -92,7 +94,7 @@ class MainWindow(QMainWindow):
     @staticmethod
     def getLoginData():
         dbconn = db.connect("data.db")
-        conn_data = {"adress":"127.0.0.1:5555", "login":"qwe123", "pass":"123123"}
+        conn_data = {"adress":"", "login":"", "pass":""}
         return conn_data, dbconn
 
     def login(self):
