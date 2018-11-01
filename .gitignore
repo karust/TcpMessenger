@@ -1,0 +1,8 @@
+Client/build
+Client/dist
+*.pyc
+*.spec
+config.py
+Client/__pyc*
+data.db
+./Server
